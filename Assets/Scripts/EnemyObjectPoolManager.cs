@@ -10,7 +10,7 @@ public class EnemyObjectPoolManager : MonoBehaviour
 
     void Start()
     {
-        // Instantiate enemy objects and add them to the object pool
+        
         for (int i = 0; i < poolSize; i++)
         {
             GameObject enemy = Instantiate(enemyPrefab);
@@ -21,7 +21,7 @@ public class EnemyObjectPoolManager : MonoBehaviour
 
     public void SpawnEnemy(Vector3 spawnPosition)
     {
-        // Check for a deactivated enemy object in the pool
+       
         GameObject enemy = enemyPool.Find(obj => !obj.activeSelf);
         if (enemy != null)
         {
@@ -30,13 +30,13 @@ public class EnemyObjectPoolManager : MonoBehaviour
         }
         else
         {
-            // Instantiate a new enemy object if no deactivated enemy is available
+            
             enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
             enemyPool.Add(enemy);
         }
     }
 
-    // Deactivate all enemy objects in the pool
+   
     public void DeactivateAllEnemies()
     {
         foreach (GameObject enemy in enemyPool)
