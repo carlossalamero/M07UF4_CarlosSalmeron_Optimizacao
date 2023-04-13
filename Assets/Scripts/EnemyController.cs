@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        // Move enemies towards the target (player's ship)
+        
         if (target != null)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
@@ -36,7 +36,7 @@ public class EnemyController : MonoBehaviour
     {
         if (other.CompareTag("Bullet"))
         {
-            // If an enemy is hit by a bullet, deactivate the bullet and the enemy
+            
             other.gameObject.SetActive(false);
             gameObject.SetActive(false);
         }
@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour
 
     void OnBecameInvisible()
     {
-        // If an enemy goes off-screen, deactivate it and return it to the pool
+        
         gameObject.SetActive(false);
     }
 }
